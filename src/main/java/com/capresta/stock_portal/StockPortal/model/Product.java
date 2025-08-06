@@ -48,8 +48,8 @@ public class Product {
 
     @Column(name = "rate_per_kg_ex_cold")
     private Double ratePerKgExCold;
-
-    @Column(name = "view_product", columnDefinition = "TEXT")
+    @Lob
+    @Column(name = "view_product", columnDefinition = "LONGBLOB")
     private byte[] viewProduct;
 
 //    @Column(name = "view_product", columnDefinition = "TEXT")
