@@ -8,8 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    // You can add custom query methods here if needed
-//    List<Product> findByProductName(String productName);
-    List<Product> findByProductNameContainingIgnoreCaseAndLocationIgnoreCase(String ProductName,String location);
+
+    List<Product> findByProductNameContainingIgnoreCaseAndLocationContainingIgnoreCase(
+            String productName, String location);
 
 }

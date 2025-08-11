@@ -1,74 +1,79 @@
 package com.capresta.stock_portal.StockPortal.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
 public class Product {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_name", nullable = false)
     private String productName;
-
-    @Column(name = "trade_mark")
     private String tradeMark;
-
-    @Column(name = "quantity_available_bags")
-    private Integer quantityAvailableBags;
-
-    public double getNetWeightPerBag() {
-        return netWeightPerBag;
-    }
-
-    public void setNetWeightPerBag(double netWeightPerBag) {
-        this.netWeightPerBag = netWeightPerBag;
-    }
-
-    @Column(name = "net_weight_per_bag")
+    private int quantityAvailableBags;
     private double netWeightPerBag;
-
-    @Column(name = "location")
     private String location;
-
-    @Column(name = "lot_no")
-    private String lotNo;
-
-    @Column(name = "purchase_rate")
-    private Double purchaseRate;
-
-    @Column(name = "rate_per_kg_ex_cold")
-    private Double ratePerKgExCold;
-    @Lob
-    @Column(name = "view_product", columnDefinition = "LONGBLOB")
-    private byte[] viewProduct;
-
-//    @Column(name = "view_product", columnDefinition = "TEXT")
-//    private String viewProduct;
-
-//    @Column(name = "Add_product", columnDefinition = "TEXT")
-//    private byte[] AddProduct;
-//
-@Lob
-@Column(name = "addlab_report", columnDefinition = "LONGBLOB")
-private byte[] labReport;
+    private double RatePerKgExCold;
+    private String LotNo;
+    private double PurchaseRate;
 
 
-//    @Column(name = "lab_report", columnDefinition = "TEXT")
-//    private byte[] AddlabReport;
+    private String imagePath;   // relative path to image
+    private String labReportPath; // relative path to PDF
 
-//    @Column(name = "lab_report", columnDefinition = "TEXT")
-//    private String labReport;
+    // getters & setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
+    public String getProductName() { return productName; }
+    public void setProductName(String productName) { this.productName = productName; }
 
+    public String getTradeMark() { return tradeMark; }
+    public void setTradeMark(String tradeMark) { this.tradeMark = tradeMark; }
+
+    public int getQuantityAvailableBags() { return quantityAvailableBags; }
+    public void setQuantityAvailableBags(int quantityAvailableBags) { this.quantityAvailableBags = quantityAvailableBags; }
+
+    public double getNetWeightPerBag() { return netWeightPerBag; }
+    public void setNetWeightPerBag(double netWeightPerBag) { this.netWeightPerBag = netWeightPerBag; }
+
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+
+    public String getImagePath() { return imagePath; }
+    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
+
+    public String getLabReportPath() { return labReportPath; }
+    public void setLabReportPath(String labReportPath) { this.labReportPath = labReportPath; }
+
+    public double getRatePerKgExCold() {
+        return RatePerKgExCold;
     }
 
+    public void setRatePerKgExCold(double ratePerKgExCold) {
+        RatePerKgExCold = ratePerKgExCold;
+    }
+
+    public String getLotNo() {
+        return LotNo;
+    }
+
+    public void setLotNo(String lotNo) {
+        LotNo = lotNo;
+    }
+
+    public double getPurchaseRate() {
+        return PurchaseRate;
+    }
+
+    public void setPurchaseRate(double purchaseRate) {
+        PurchaseRate = purchaseRate;
+    }
+}
